@@ -19,3 +19,6 @@ ORM 시장은 JPA가 대다수고 그 구현체는 하이버네이트가 80%정�
   구현 클래스보다 역할인 인터페이스에 의존해야 한다
 
 다형성만으로는 OCP, DIP를 지키기 힘든데 스프링은 가능하게 만듬
+
+AnnotationConfigApplicationContext ac = new AnnotationConfigApplicationContext(AppConfig.class); <br>
+bean 객체의 확인 및 관리
