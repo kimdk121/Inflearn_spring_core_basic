@@ -22,3 +22,17 @@ ORM 시장은 JPA가 대다수고 그 구현체는 하이버네이트가 80%정�
 
 AnnotationConfigApplicationContext ac = new AnnotationConfigApplicationContext(AppConfig.class); <br>
 bean 객체의 확인 및 관리
+
+BeanFactory
+- 스프링 컨테이너의 최상위 인터페이스
+- 스프링 빈을 관리하고 조회
+
+ApplicationContext
+- BeanFactory 기능을 모두 상속받아서 제공하고 편리한 부가기능을 포함한다.
+
+1. AnnotationConfigApplicationContext
+   - AnnotatedBeanDefinitionReader가 AppConfig.class 설정 정보를 읽어옴
+2. GenericXmlApplicationContext
+   - XmlBeanDefinitionReader가 appConfig.xml 설정 정보를 읽어옴
+3. XxxApplicationContext
+   - XxxBeanDefinitionReader가 appConfig.xxx 의 설정 정보를 읽어옴
