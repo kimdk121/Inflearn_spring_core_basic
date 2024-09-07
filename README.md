@@ -36,3 +36,7 @@ ApplicationContext
    - XmlBeanDefinitionReader가 appConfig.xml 설정 정보를 읽어옴
 3. XxxApplicationContext
    - XxxBeanDefinitionReader가 appConfig.xxx 의 설정 정보를 읽어옴
+  
+Singleton 패턴 <br>
+AppConfig를 new로 생성하게되면 트래픽에따라 객체를 계속 생성하고 소멸하게 된다.
+싱글톤 패턴을 사용하면 객체를 처음에 한번 생성하고 공유하도록 하게한다.
