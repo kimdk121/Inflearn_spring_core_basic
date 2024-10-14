@@ -42,4 +42,14 @@ AppConfig를 new로 생성하게되면 트래픽에따라 객체를 계속 생�
 싱글톤 패턴을 사용하면 객체를 처음에 한번 생성하고 공유하도록 하게한다.
 
 @ComponentScan
-Config class에 붙여 넣으면 Component를 Bean으로 등로한다.
+Config class에 붙여 넣으면 Component를 Bean으로 등록한다.
+그리고 이미 @SpringBootApplication에 @ComponentScan 설정이 되어있다
+
+어노테이션에는 상속관계라는것이 없어서 어노테이션이 특정 어노테이션을 들고 있는 것을 인식할수 있는것은 자바기능이 아니고 스프링의 기능이다.
+<br>
+
+스프링 구조 어노테이션
+1. @Controller : 스프링 MVC 컨트롤러로 인식
+2. @Repository : 스프링 데이터 접근 계증으로 인식하고, 데이터 계층의 예외를 스프링 예외로 변환해줌.
+3. @Configuration : 스프링 설정 정보로 인식하고, 스프링 빈이 싱글톤을 유지하도록 추가 처리를 한다.
+4. @Service : 특별한 처리를 하지 않고, 개발자들이 핵심 비즈니스 로직이 여기 있겠구나하고 인식하는데 도움을 준다.
