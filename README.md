@@ -54,4 +54,30 @@ Config class에 붙여 넣으면 Component를 Bean으로 등록한다.
 3. @Configuration : 스프링 설정 정보로 인식하고, 스프링 빈이 싱글톤을 유지하도록 추가 처리를 한다.
 4. @Service : 특별한 처리를 하지 않고, 개발자들이 핵심 비즈니스 로직이 여기 있겠구나하고 인식하는데 도움을 준다.
 
+의존성 주입
+1. 생성자 주입
+@Autowired
+public OrderServiceImpl(MemberRepository memberRepository, DiscountPolicy discountPolicy) {
+System.out.println("1. OrderServiceImpl.OrderServiceImpl");
+this.memberRepository = memberRepository;
+this.discountPolicy = discountPolicy;
+}
+2. 수정자 주입
+@Autowired
+public void setDiscountPolicy(DiscountPolicy discountPolicy) {
+    System.out.println("discountPolicy = " + discountPolicy);
+    this.discountPolicy = discountPolicy;
+}
+3. 필드주입
+@Autowired
+private MemberRepository memberRepository;
+4. 일반메서드 주입
+@Autowired
+public void init(MemberRepository memberRepository, DiscountPolicy discountPolicy) {
+    this.memberRepository = memberRepository;
+    this.discountPolicy = discountPolicy; 
+}
 
+생성자가 1개일 때에는 @Autowired 생략해도 빈으로 등록된다. (수정자 주입이 있어도)
+생성자 주입 -> 수정자 주입
+필드주입은 테스트가 불편하여 권장하지 않음
