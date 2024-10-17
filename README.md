@@ -81,3 +81,5 @@ public void init(MemberRepository memberRepository, DiscountPolicy discountPolic
 생성자가 1개일 때에는 @Autowired 생략해도 빈으로 등록된다. (수정자 주입이 있어도)
 생성자 주입 -> 수정자 주입
 필드주입은 테스트가 불편하여 권장하지 않음
+
+@Nullable 이나 Optional<> 은 스프링 전반에서 사용가능
