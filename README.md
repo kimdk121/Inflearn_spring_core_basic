@@ -83,3 +83,14 @@ public void init(MemberRepository memberRepository, DiscountPolicy discountPolic
 필드주입은 테스트가 불편하여 권장하지 않음
 
 @Nullable 이나 Optional<> 은 스프링 전반에서 사용가능
+
+@Autowired 매칭
+1. 타입으로 매칭
+2. 타입 매칭의 결과가 2개 이상일 때는 필드명으로 빈이름 매칭
+
+@Qualifier("mainDiscountPolicy") DiscountPolicy discountPolicy
+
+@Primary
+의존관계 설정시 빈설정의 우선적으로 빈 매칭
+
+@Qualifier 와 @Primary가 같이 있다면 @Qualifier가 우선권을 가진다
