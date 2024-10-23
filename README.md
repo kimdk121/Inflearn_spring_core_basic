@@ -94,3 +94,12 @@ public void init(MemberRepository memberRepository, DiscountPolicy discountPolic
 의존관계 설정시 빈설정의 우선적으로 빈 매칭
 
 @Qualifier 와 @Primary가 같이 있다면 @Qualifier가 우선권을 가진다
+
+// Map을 통해 다형성의 빈을 저장하여 동적으로 사용할 수 있다.
+private final Map<String, DiscountPolicy> policyMap;
+
+1. 업무 로직 빈: 웹을 지원하는 컨트롤러, 서비스, 데이터 계층 로직을 처리하는 리포지토리 등이 해당되며 숫자가 매우 많고 유사한 패턴이 있기에 자동 기능을 사용하는것이 유리하다. 
+2. 기술 지원 빈: 기술적인 문제나 공통 관심사(AOP)를 처리할 때 주로 사용하며 수가 매우 적고 어플리케이션 전역에 영향을 미치고 문제 파악에 어려운 점이 있어 수동 빈으로 등록하여 관리하는 것이 유리하다. 
+
+빈 등록은 자동기능을 사용하되 직접 등록하는 기술 지원 객체는 수동으로 등록하고
+다형성을 활용하는 비즈니스 로직은 수동 등록을 하여 명확하게 하는것이 좋다.
