@@ -134,3 +134,21 @@ destroyMethod 는 지정하지 않아도 알아서 (close, shutdown) 찾아서 �
 2. session : 웹 세션이 생성되고 종료될 때 까지 유지되는 스코프
 3. application : 서블릿 컨텍스트와 같은 범위로 유지되는 스코프
 
+의존관계를 외부에서 주입받는건 Dependency Injection
+직접 필요한 의존관계를 찾는건 Dependency Lookup
+
+싱글톤 빈과 함께 프로토타입 스코프를 사용 시
+1.
+@Autowired
+ObjectProvider<PrototypeBean> prototypeBeanProvider;
+PrototypeBean prototypeBean = prototypeBeanProvider.getObject(); 
+
+2.
+dependency에 implementation 'jakarta.inject:jakarta.inject-api:2.0.1' 추가
+@Autowired
+private Provider<PrototypeBean> prototypeBeanProvider;
+PrototypeBean prototypeBean = prototypeBeanProvider.get();
+
+의존관계 추가가 필요없는 1번이 편리하지만 코드를 스프링이 아닌 다른 컨테이너에서도 사용할 수 있어야 한다면
+2번의 자바표준 Provider를 사용한다.
+
