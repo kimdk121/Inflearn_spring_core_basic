@@ -152,3 +152,6 @@ PrototypeBean prototypeBean = prototypeBeanProvider.get();
 의존관계 추가가 필요없는 1번이 편리하지만 코드를 스프링이 아닌 다른 컨테이너에서도 사용할 수 있어야 한다면
 2번의 자바표준 Provider를 사용한다.
 
+@Scope(value = "request", proxyMode = ScopedProxyMode.TARGET_CLASS)
+request scope 는 스프링 실행 시점에 생성되지 않아 에러가 난다.
+CGLIB에서 생성 시점엔 가짜 프록시 객체를 만들어 주입하고 진짜 요청이 들어온 시점에 새로 객체를 주입한다.
